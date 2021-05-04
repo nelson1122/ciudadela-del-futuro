@@ -4,22 +4,23 @@ import com.constructoressas.ciudadeladelfuturo.entities.CompraMaterial;
 import com.constructoressas.ciudadeladelfuturo.entities.Material;
 import com.constructoressas.ciudadeladelfuturo.repositories.CompraMaterialRepository;
 import com.constructoressas.ciudadeladelfuturo.repositories.MaterialRepository;
+import com.constructoressas.ciudadeladelfuturo.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.Map;
 
 @Service
 @Transactional
 public class CompraMaterialService {
-
-    @Autowired
+   @Autowired
     CompraMaterialRepository repository;
     @Autowired
     MaterialRepository materialRepository;
 
-    public CompraMaterial ingresarMaterial(CompraMaterial compraMaterial){
+    public Map<String, Object> ingresarMaterial(CompraMaterial compraMaterial) {
         String nombreMaterial = compraMaterial.getIdMaterial().getNombre();
         Material material = materialRepository.findByNombre(nombreMaterial);
 
@@ -29,7 +30,8 @@ public class CompraMaterialService {
 
         compraMaterial.setFechaIngreso(new Date());
         compraMaterial.setIdMaterial(material);
-        return repository.save(compraMaterial);
+
+        return ResponseUtil.mapOK(repository.save(compraMaterial));
     }
 
 }

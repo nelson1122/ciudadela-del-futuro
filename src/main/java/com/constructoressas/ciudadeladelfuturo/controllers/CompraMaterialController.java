@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 import static org.springframework.http.HttpStatus.OK;
 
 @Controller
@@ -21,7 +23,7 @@ public class CompraMaterialController {
 
     @PostMapping("/ingresar")
     public @ResponseBody
-    ResponseEntity<?> ingresarMaterial(@RequestBody CompraMaterial compraMaterial) {
+    ResponseEntity<Map<String, Object>> ingresarMaterial(@RequestBody CompraMaterial compraMaterial) {
         return new ResponseEntity<>(service.ingresarMaterial(compraMaterial), OK);
     }
 }

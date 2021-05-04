@@ -1,4 +1,4 @@
-package com.constructoressas.ciudadeladelfuturo.utls;
+package com.constructoressas.ciudadeladelfuturo.utils;
 
 public class Constants {
     private Constants() {
@@ -19,4 +19,18 @@ public class Constants {
     public static final Integer ESTADO_SOLICITUD_PROGRAMADA = 3;
     public static final Integer ESTADO_SOLICITUD_EN_PROGRESO = 4;
     public static final Integer ESTADO_SOLICITUD_FINALIZADA = 5;
+
+    public static final String MSG_SOLICITUDES_NO_REGISTRADAS = "No se han registrado solicitudes en el sistema";
+    public static final String MSG_REPORTE_GENERADO = "Reporte generado exitosamente";
+    public static final String MSG_ERROR_GENERAR_REPORTE = "Ha ocurrido un error al generar el reporte";
+
+
+    public static final Object[] HEADERS_REPORTE = new String[]{
+            "TIPO CONSTRUCCION",
+            "X",
+            "Y",
+            "ESTADO",
+            "FECHA ESTADO",
+            "MOTIVO"
+    };
 }
