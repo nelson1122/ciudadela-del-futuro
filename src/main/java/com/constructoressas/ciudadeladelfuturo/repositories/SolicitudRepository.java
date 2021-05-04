@@ -17,11 +17,12 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer> {
 
     @Query(value = "" +
             "SELECT\n" +
-            "  tc.nombre AS \"TIPO_CONSTRUCCION\",\n" +
-            "  s.x AS ,\n" +
-            "  s.y,\n" +
-            "  c2.nombre AS estado,\n" +
-            "  o.fecha_estado AS \"fechaEstado\"\n" +
+            "  tc.nombre AS \"TIPO CONSTRUCCION\",\n" +
+            "  s.x AS \"X\",\n" +
+            "  s.y AS \"Y\",\n" +
+            "  c2.nombre AS \"ESTADO\",\n" +
+            "  o.fecha_estado AS \"FECHA ESTADO\",\n" +
+            "  o.motivo AS \"MOTIVO\"\n" +
             "FROM solicitud s\n" +
             "  JOIN tipo_construccion tc ON s.id_tipo_construccion = tc.id\n" +
             "  JOIN orden_construccion o ON s.id = o.id_solicitud\n" +
